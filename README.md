@@ -146,6 +146,8 @@ Aplicación Backend para la gestión de un bazar, donde cada venta posee una lis
 ## Documentación de las solicitudes
 [Ver solicitudes](https://documenter.getpostman.com/view/13576757/2sAXxV4UbS)
 
+[Bazar - Spring Boot - JPA + Hibernate.postman_collection.zip](https://github.com/user-attachments/files/17400835/Bazar.-.Spring.Boot.-.JPA.%2B.Hibernate.postman_collection.zip)
+
 ## Herramientas
 * Java
 * Spring Boot
