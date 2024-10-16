@@ -1,10 +1,15 @@
 package com.kronos.bazar.controller;
 
+import com.kronos.bazar.dto.ResumenDiaDTO;
+import com.kronos.bazar.dto.VentaMayorTotalDTO;
+import com.kronos.bazar.model.Producto;
 import com.kronos.bazar.model.Venta;
 import com.kronos.bazar.service.IVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -44,5 +49,20 @@ public class VentaController {
         }
 
         return ventaServ.editarVenta(venta);
+    }
+
+    @GetMapping("/ventas/productos/{idVenta}")
+    public List<Producto> listarProductosDeVenta(@PathVariable Long idVenta){
+        return ventaServ.listarProductosDeVenta(idVenta);
+    }
+
+    @GetMapping("/ventas/fecha/{fechaVenta}")
+    public ResumenDiaDTO obtenerResumenDia(@PathVariable("fechaVenta") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaVenta){
+        return ventaServ.obtenerResumenDia(fechaVenta);
+    }
+
+    @GetMapping("/ventas/mayor_venta")
+    public VentaMayorTotalDTO obtenerVentaConMayorTotal(){
+        return ventaServ.obtenerVentaConMayorTotal();
     }
 }

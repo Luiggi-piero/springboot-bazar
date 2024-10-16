@@ -40,4 +40,9 @@ public class ProductoService implements IProductoService {
         this.crearProducto(producto);
         return this.obtenerProductoPorID(producto.getCodigo_producto());
     }
+
+    @Override
+    public List<Producto> productosCantidadMenor(int cantidad) {
+        return productoRepo.productosCantidadMenor(cantidad);
+    }
 }

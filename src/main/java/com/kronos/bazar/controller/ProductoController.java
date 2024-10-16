@@ -44,4 +44,9 @@ public class ProductoController {
         }
         return null;
     }
+
+    @GetMapping("/productos/falta_stock/{cantidad}")
+    public List<Producto> productosCantidadMenor(@PathVariable int cantidad){
+        return productoServ.productosCantidadMenor(cantidad);
+    }
 }

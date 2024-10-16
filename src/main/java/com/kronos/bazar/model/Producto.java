@@ -1,5 +1,6 @@
 package com.kronos.bazar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class Producto {
 
     // ManyToMany: 1 producto puede estar en varias ventas
     @ManyToMany(mappedBy = "listaProductos") // mappedBy: indica que es una relación bidireccional y que Producto es el lado inverso de la relación y está mapeado por la lista 'listaProductos' en Venta
+    @JsonIgnoreProperties("listaProductos") // Ignora la propiedad listaProductos de cada venta
     private List<Venta> ventas;
 
 
